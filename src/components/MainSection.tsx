@@ -121,7 +121,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
           <div className="mb-8">
             <SmoothRotatingText
               texts={rotatingTexts}
-              rotationInterval={2200}
+              rotationInterval={1500}
               className="text-lg sm:text-xl md:text-2xl text-white/95 font-semibold whitespace-nowrap"
               blurBackground={true}
             />
@@ -234,7 +234,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border-none outline-none rounded-2xl bg-gray-200 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff]"
+                    className="w-full px-4 py-3 border-none outline-none rounded-2xl bg-gray-100 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff]"
                     placeholder="Ваше имя"
                     autoComplete="name"
                     required
@@ -251,7 +251,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 pr-12 border-none outline-none rounded-2xl bg-gray-200 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff]"
+                      className="w-full px-4 py-3 pr-12 border-none outline-none rounded-2xl bg-gray-100 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff]"
                       placeholder="+375XXXXXXXXX"
                       autoComplete="tel"
                       required
@@ -273,7 +273,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
                     value={formData.comment}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full px-4 py-3 border-none outline-none rounded-2xl bg-gray-200 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff] resize-none"
+                    className="w-full px-4 py-3 border-none outline-none rounded-2xl bg-gray-100 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff] resize-none"
                     placeholder="Расскажите о ваших пожеланиях..."
                     autoComplete="off"
                   />
