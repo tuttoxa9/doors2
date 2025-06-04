@@ -344,7 +344,7 @@ export default function ShoppingCart({ onOrderSubmit }: ShoppingCartProps) {
                       value={orderData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
                       placeholder="+375XXXXXXXXX"
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border-none outline-none rounded-2xl bg-gray-300 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff] text-sm sm:text-base"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border-none outline-none rounded-2xl bg-gray-200 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff] text-sm sm:text-base"
                       autoComplete="tel"
                       required
                     />
@@ -359,7 +359,7 @@ export default function ShoppingCart({ onOrderSubmit }: ShoppingCartProps) {
                       value={orderData.name}
                       onChange={(e) => handleInputChange('name', e.target.value)}
                       placeholder="Ваше имя"
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border-none outline-none rounded-2xl bg-gray-300 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff] text-sm sm:text-base"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border-none outline-none rounded-2xl bg-gray-200 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff] text-sm sm:text-base"
                       autoComplete="name"
                     />
                   </div>
@@ -374,7 +374,7 @@ export default function ShoppingCart({ onOrderSubmit }: ShoppingCartProps) {
                       value={orderData.address}
                       onChange={(e) => handleInputChange('address', e.target.value)}
                       placeholder="Город, улица, дом"
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border-none outline-none rounded-2xl bg-gray-300 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff] text-sm sm:text-base"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border-none outline-none rounded-2xl bg-gray-200 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff] text-sm sm:text-base"
                       autoComplete="address-line1"
                     />
                   </div>
@@ -388,7 +388,7 @@ export default function ShoppingCart({ onOrderSubmit }: ShoppingCartProps) {
                       onChange={(e) => handleInputChange('comment', e.target.value)}
                       placeholder="Дополнительные пожелания..."
                       rows={2}
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border-none outline-none rounded-2xl bg-gray-300 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff] resize-none text-sm sm:text-base"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border-none outline-none rounded-2xl bg-gray-200 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff] resize-none text-sm sm:text-base"
                       autoComplete="off"
                     />
                   </div>
