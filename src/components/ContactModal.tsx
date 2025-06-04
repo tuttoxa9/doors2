@@ -114,7 +114,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               name="name"
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-transparent outline-none transition-all duration-200 hover:border-zinc-400"
+              className="w-full px-4 py-3 border-none outline-none rounded-2xl bg-gray-300 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff]"
               placeholder="Ваше имя"
               autoFocus
               autoComplete="name"
@@ -132,7 +132,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 pr-12 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-transparent outline-none transition-all duration-200 hover:border-zinc-400"
+                className="w-full px-4 py-3 pr-12 border-none outline-none rounded-2xl bg-gray-300 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff]"
                 autoComplete="tel"
                 placeholder="+375XXXXXXXXX"
                 required
@@ -154,7 +154,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               value={formData.comment}
               onChange={handleInputChange}
               rows={4}
-              className="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-transparent outline-none transition-all duration-200 hover:border-zinc-400 resize-none"
+              className="w-full px-4 py-3 border-none outline-none rounded-2xl bg-gray-300 shadow-[inset_2px_5px_10px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out focus:bg-white focus:scale-105 focus:shadow-[13px_13px_100px_#969696,-13px_-13px_100px_#ffffff] resize-none"
               placeholder="Расскажите о ваших пожеланиях..."
               autoComplete="off"
             />
