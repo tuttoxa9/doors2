@@ -343,8 +343,9 @@ export default function ShoppingCart({ onOrderSubmit }: ShoppingCartProps) {
                       type="tel"
                       value={orderData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
-                      placeholder="+375 (XX) XXX-XX-XX"
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-zinc-300 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent text-sm sm:text-base"
+                      placeholder="+375XXXXXXXXX"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-zinc-300 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent text-sm sm:text-base hover:border-zinc-400 transition-all duration-200"
+                      autoComplete="tel"
                       required
                     />
                   </div>
@@ -358,7 +359,8 @@ export default function ShoppingCart({ onOrderSubmit }: ShoppingCartProps) {
                       value={orderData.name}
                       onChange={(e) => handleInputChange('name', e.target.value)}
                       placeholder="Ваше имя"
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-zinc-300 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent text-sm sm:text-base"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-zinc-300 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent text-sm sm:text-base hover:border-zinc-400 transition-all duration-200"
+                      autoComplete="name"
                     />
                   </div>
 
@@ -372,7 +374,8 @@ export default function ShoppingCart({ onOrderSubmit }: ShoppingCartProps) {
                       value={orderData.address}
                       onChange={(e) => handleInputChange('address', e.target.value)}
                       placeholder="Город, улица, дом"
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-zinc-300 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent text-sm sm:text-base"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-zinc-300 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent text-sm sm:text-base hover:border-zinc-400 transition-all duration-200"
+                      autoComplete="address-line1"
                     />
                   </div>
 
@@ -385,7 +388,8 @@ export default function ShoppingCart({ onOrderSubmit }: ShoppingCartProps) {
                       onChange={(e) => handleInputChange('comment', e.target.value)}
                       placeholder="Дополнительные пожелания..."
                       rows={2}
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-zinc-300 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent resize-none text-sm sm:text-base"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-zinc-300 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent resize-none text-sm sm:text-base hover:border-zinc-400 transition-all duration-200"
+                      autoComplete="off"
                     />
                   </div>
 

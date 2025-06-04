@@ -16,7 +16,7 @@ type SubmissionStatus = 'idle' | 'loading' | 'success' | 'error'
 export default function MainSection({ showContactForm = false, setShowContactForm }: MainSectionProps) {
   const [formData, setFormData] = useState({
     name: '',
-    phone: '+375291565232',
+    phone: '+375',
     comment: ''
   })
   const [submissionStatus, setSubmissionStatus] = useState<SubmissionStatus>('idle')
@@ -55,7 +55,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
         setTimeout(() => {
           setShowContactForm?.(false)
           setSubmissionStatus('idle')
-          setFormData({ name: '', phone: '+375291565232', comment: '' })
+          setFormData({ name: '', phone: '+375', comment: '' })
         }, 2000)
       } else {
         setSubmissionStatus('error')
@@ -234,8 +234,9 @@ export default function MainSection({ showContactForm = false, setShowContactFor
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-transparent outline-none transition-all duration-200"
+                    className="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-transparent outline-none transition-all duration-200 hover:border-zinc-400"
                     placeholder="Ваше имя"
+                    autoComplete="name"
                     required
                   />
                 </div>
@@ -250,7 +251,9 @@ export default function MainSection({ showContactForm = false, setShowContactFor
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 pr-12 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-transparent outline-none transition-all duration-200"
+                      className="w-full px-4 py-3 pr-12 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-transparent outline-none transition-all duration-200 hover:border-zinc-400"
+                      placeholder="+375XXXXXXXXX"
+                      autoComplete="tel"
                       required
                     />
                     {isPhoneValid && (
@@ -270,8 +273,9 @@ export default function MainSection({ showContactForm = false, setShowContactFor
                     value={formData.comment}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-transparent outline-none transition-all duration-200"
+                    className="w-full px-4 py-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-transparent outline-none transition-all duration-200 hover:border-zinc-400 resize-none"
                     placeholder="Расскажите о ваших пожеланиях..."
+                    autoComplete="off"
                   />
                 </div>
                 <motion.button
