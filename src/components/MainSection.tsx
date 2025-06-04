@@ -140,31 +140,32 @@ export default function MainSection({ showContactForm = false, setShowContactFor
             </motion.button>
           </div>
 
-          {/* Стрелка для скролла */}
-          <div className="flex justify-center mt-12">
-            <motion.div
-              className="cursor-pointer"
-              initial={{ y: 0 }}
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              onClick={() => {
-                const element = document.querySelector('section:nth-of-type(2)');
-                element?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              <div className="w-8 h-8 border-2 border-white/60 rounded-full flex items-center justify-center backdrop-blur-sm bg-white/10">
-                <motion.div
-                  initial={{ opacity: 0.6 }}
-                  animate={{ opacity: [0.6, 1, 0.6] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-white">
-                    <path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
+        </div>
+
+        {/* Стрелка для скролла - в самом низу секции */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+          <motion.div
+            className="cursor-pointer"
+            initial={{ y: 0 }}
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            onClick={() => {
+              const element = document.querySelector('section:nth-of-type(2)');
+              element?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            <div className="w-8 h-8 border-2 border-white/60 rounded-full flex items-center justify-center backdrop-blur-sm bg-white/10">
+              <motion.div
+                initial={{ opacity: 0.6 }}
+                animate={{ opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-white">
+                  <path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
