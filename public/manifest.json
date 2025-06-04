@@ -1,0 +1,29 @@
+{
+  "name": "MAESTRO - Шкафы на заказ в Минске",
+  "short_name": "MAESTRO",
+  "description": "Изготовление качественных шкафов на заказ в Минске от 290 BYN. Гарантия 5 лет.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "shopping", "lifestyle"],
+  "lang": "ru",
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "/showroom.webp",
+      "sizes": "1200x630",
+      "type": "image/webp",
+      "label": "MAESTRO - Мебель на заказ"
+    }
+  ]
+}

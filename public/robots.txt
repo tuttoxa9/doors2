@@ -1,0 +1,41 @@
+User-agent: *
+Allow: /
+
+# Disallow admin areas and temporary files
+Disallow: /admin/
+Disallow: /.netlify/
+Disallow: /api/
+Disallow: /output/
+Disallow: /_next/static/chunks/
+Disallow: /*_buildManifest.js
+Disallow: /*_ssgManifest.js
+
+# Allow important API endpoints
+Allow: /api/rss
+
+# Allow all media files
+Allow: /images/
+Allow: /videos/
+Allow: /fonts/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.mp4$
+
+# Allow important sections
+Allow: /#main
+Allow: /#shop
+Allow: /#faq
+
+# Sitemap locations for all domains
+Sitemap: https://maestroworks.ru/sitemap.xml
+Sitemap: https://maestroworks.netlify.app/sitemap.xml
+Sitemap: https://uhtimebel.by/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Host preferences (primary domain)
+Host: maestroworks.ru
