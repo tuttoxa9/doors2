@@ -100,29 +100,30 @@ export default function MainSection({ showContactForm = false, setShowContactFor
         {/* Video Background */}
         <VideoBackground />
 
-        <div className="container mx-auto px-6 text-center relative z-10">
+        <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
           {/* Заголовок с блюром */}
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mb-4 md:mb-6">
             <div className="relative inline-block">
               {/* Блюр за заголовком - подстраивается под размер текста */}
               <div className="absolute inset-0">
-                <div className="absolute inset-0 backdrop-blur-lg bg-black/30 rounded-2xl transform scale-110" />
+                <div className="absolute inset-0 backdrop-blur-lg bg-black/30 rounded-xl md:rounded-2xl transform scale-110" />
               </div>
               <h1
-                className="text-3xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight relative z-10 px-6 py-3"
+                className="text-2xl sm:text-4xl md:text-6xl font-bold text-white tracking-tight relative z-10 px-3 py-2 md:px-6 md:py-3 text-center"
                 style={{ fontFamily: 'AristaPro, sans-serif' }}
               >
-                Ваше видение. Наше исполнение.
+                <span className="block">Ваше видение.</span>
+                <span className="block">Наше исполнение.</span>
               </h1>
             </div>
           </div>
 
           {/* Подзаголовок с плавной анимацией размера */}
-          <div className="mb-8">
+          <div className="mb-6 md:mb-8">
             <SmoothRotatingText
               texts={rotatingTexts}
               rotationInterval={1500}
-              className="text-lg sm:text-xl md:text-2xl text-white/95 font-semibold whitespace-nowrap"
+              className="text-base sm:text-lg md:text-2xl text-white/95 font-semibold whitespace-nowrap"
               blurBackground={true}
             />
           </div>
@@ -131,12 +132,12 @@ export default function MainSection({ showContactForm = false, setShowContactFor
           <div className="flex justify-center">
             <motion.button
               onClick={() => setShowContactForm?.(true)}
-              className="bg-zinc-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-medium hover:bg-zinc-800 transition-colors duration-200 inline-flex items-center space-x-2"
+              className="bg-zinc-900 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-medium hover:bg-zinc-800 transition-colors duration-200 inline-flex items-center space-x-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <span>Заказать консультацию</span>
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </motion.button>
           </div>
 
@@ -170,8 +171,8 @@ export default function MainSection({ showContactForm = false, setShowContactFor
       </section>
 
       {/* Process & Form Section */}
-      <section className="bg-zinc-50 rounded-b-3xl py-20">
-        <div className="container mx-auto px-6 max-w-7xl">
+      <section className="bg-zinc-50 rounded-t-3xl md:rounded-t-[3rem] py-16 md:py-20 -mt-6 md:-mt-8 relative z-10">
+        <div className="container mx-auto px-4 md:px-6 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Process Description */}
             <div>
