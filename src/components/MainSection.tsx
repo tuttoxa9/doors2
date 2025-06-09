@@ -112,7 +112,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
                 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight relative z-10 px-6 py-3"
                 style={{ fontFamily: 'AristaPro, sans-serif' }}
               >
-                Пространство. Стиль. Качество.
+                Ваше видение. Наше исполнение.
               </h1>
             </div>
           </div>
