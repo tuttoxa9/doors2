@@ -70,7 +70,7 @@ export default function Header({ scrollY, activeSection, setActiveSection, onCon
                   : "bg-zinc-900 text-white hover:bg-zinc-800 border-transparent"
               )}
             >
-              Магазин
+              Каталог
             </button>
           </div>
 
@@ -147,7 +147,7 @@ export default function Header({ scrollY, activeSection, setActiveSection, onCon
               )}
               onClick={() => setActiveSection(activeSection === 'main' ? 'shop' : 'main')}
             >
-              {activeSection === 'main' ? 'Магазин' : 'Главная'}
+              {activeSection === 'main' ? 'Каталог' : 'Главная'}
             </button>
           </div>
         </nav>

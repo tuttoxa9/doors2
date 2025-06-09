@@ -1,29 +1,43 @@
-# TODO List для обновления Firebase
+# TODO List for Doors2 Project Updates
 
-## Задачи:
-- [x] Клонировать репозиторий GitHub: doors2
-- [x] Обновить Firebase конфигурацию в src/lib/firebase.ts
-- [x] Проверить, что магазин товаров правильно связан с новой Firebase
-- [x] Установить зависимости проекта
-- [x] Протестировать подключение к Firebase
-- [x] Сделать commit изменений
-- [x] Push изменений в main ветку с токеном
+## Core Changes
+- [x] Change "магазин" to "Каталог" in navigation and headers
+- [x] Fix mobile video section to take 60% of screen height instead of 100%
+- [x] Improve desktop visual balance for "Наш процесс работы" and contact form sections
+- [x] Rewrite testimonials with more specific examples
+- [ ] Push changes back to GitHub using provided token
 
-## Новые задачи:
-- [x] Исправить анимацию в SmoothRotatingText: убрать рывки при разжимании
-- [x] Замедлить смену слов с 3000ms до 4500ms
-- [x] Сделать commit и push исправлений
+## Detailed Tasks
 
-## Firebase конфигурация для замены:
-```
-apiKey: "AIzaSyDFpT1MQSqfa8SXG0fKRS_olUAheOJAEII"
-authDomain: "mebel-be602.firebaseapp.com"
-projectId: "mebel-be602"
-storageBucket: "mebel-be602.firebasestorage.app"
-messagingSenderId: "368556149445"
-appId: "1:368556149445:web:033463c32a4ee6a93c7eac"
-measurementId: "G-3H974WY264"
-```
+### 1. Text Changes
+- [x] Find and replace "магазин" with "Каталог" in all components
+- [x] Update navigation items
+- [x] Update any headers or titles
 
-## GitHub токен для push:
-[ТОКЕН УДАЛЕН ДЛЯ БЕЗОПАСНОСТИ]
+### 2. Mobile Video Section (60% height)
+- [x] Modify VideoBackground component for mobile responsiveness
+- [x] Ensure video takes only 60% of viewport height on mobile
+- [ ] Test mobile layout
+
+### 3. Desktop Layout Improvements
+- [x] Add container wrapper for "Наш процесс работы" section
+- [x] Add container wrapper for contact form section
+- [x] Ensure sections don't stretch too wide on large screens
+- [x] Keep mobile responsiveness intact
+
+### 4. Testimonials Rewrite
+- [x] Replace generic testimonials with specific examples
+- [x] Add details about built-in wardrobes, custom solutions, etc.
+- [x] Make testimonials more realistic and detailed
+
+### 5. Git Operations
+- [ ] Configure git with GitHub token
+- [ ] Commit all changes
+- [ ] Push to main branch
+
+## Status
+- [x] Project cloned
+- [x] Changes implementation started
+- [x] Main changes completed
+- [ ] Testing and verification
+- [ ] Git push completed

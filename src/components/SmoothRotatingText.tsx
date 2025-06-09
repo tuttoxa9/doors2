@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 interface SmoothRotatingTextProps {
   texts: string[];
@@ -23,7 +23,7 @@ export default function SmoothRotatingText({
   const measureRef = useRef<HTMLSpanElement>(null);
 
   // Функция для измерения размера текста
-  const measureText = (textIndex: number): Promise<{width: number, height: number}> => {
+  const measureText = useCallback((textIndex: number): Promise<{width: number, height: number}> => {
     return new Promise((resolve) => {
       if (measureRef.current && texts[textIndex]) {
         measureRef.current.textContent = texts[textIndex];
@@ -41,13 +41,13 @@ export default function SmoothRotatingText({
         resolve({ width: 0, height: 0 });
       }
     });
-  };
+  }, [texts]);
 
   // Инициализируем размер для первого текста
   useEffect(() => {
     measureText(currentTextIndex).then(setContainerSize);
     setNextTextIndex((currentTextIndex + 1) % texts.length);
-  }, [texts]);
+  }, [texts, currentTextIndex, measureText]);
 
   useEffect(() => {
     const interval = setInterval(async () => {
@@ -67,7 +67,7 @@ export default function SmoothRotatingText({
     }, rotationInterval);
 
     return () => clearInterval(interval);
-  }, [texts.length, rotationInterval, nextTextIndex]);
+  }, [texts.length, rotationInterval, nextTextIndex, measureText]);
 
   return (
     <div className="flex justify-center">

@@ -96,7 +96,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-[60vh] md:h-screen flex items-center justify-center overflow-hidden">
         {/* Video Background */}
         <VideoBackground />
 
@@ -148,7 +148,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
             className="cursor-pointer"
             initial={{ y: 0 }}
             animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
             onClick={() => {
               const element = document.querySelector('section:nth-of-type(2)');
               element?.scrollIntoView({ behavior: 'smooth' });
@@ -158,7 +158,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
               <motion.div
                 initial={{ opacity: 0.6 }}
                 animate={{ opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-white">
                   <path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -171,7 +171,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
 
       {/* Process & Form Section */}
       <section className="bg-zinc-50 rounded-b-3xl py-20">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Process Description */}
             <div>
@@ -334,17 +334,17 @@ export default function MainSection({ showContactForm = false, setShowContactFor
             {[
               {
                 name: "Мария Петрова",
-                review: "Заказывали шкафы в спальню. Качество превзошло все ожидания! Очень довольны результатом.",
+                review: "Заказывали встроенный шкаф в прихожую. Мастер идеально вписал его в нашу нишу неправильной формы, и теперь у нас в два раза больше места для хранения. Спасибо команде!",
                 rating: 5
               },
               {
                 name: "Алексей Смирнов",
-                review: "Профессиональный подход, точные сроки, отличное качество. Рекомендую всем!",
+                review: "Делали гардеробную в спальне 3х2 метра. Система хранения продумана до мелочей - отдельные зоны для костюмов, белья, обуви. Даже антресоли используются максимально эффективно.",
                 rating: 5
               },
               {
                 name: "Екатерина Иванова",
-                review: "Сделали встроенный шкаф в прихожую. Идеально вписался в интерьер. Спасибо команде!",
+                review: "Заказали кухонный гарнитур с нестандартными размерами под потолки 3.2м. Верхние шкафы сделали до самого верха, и кухня выглядит монолитно. Качество фасадов отличное!",
                 rating: 5
               }
             ].map((review, index) => (
