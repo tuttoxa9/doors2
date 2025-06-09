@@ -12,7 +12,7 @@ interface SmoothRotatingTextProps {
 
 export default function SmoothRotatingText({
   texts,
-  rotationInterval = 3000,
+  rotationInterval = 4500,
   className = "",
   blurBackground = true
 }: SmoothRotatingTextProps) {
@@ -24,10 +24,16 @@ export default function SmoothRotatingText({
   useEffect(() => {
     if (measureRef.current) {
       measureRef.current.textContent = texts[currentTextIndex];
-      const rect = measureRef.current.getBoundingClientRect();
-      setContainerSize({
-        width: Math.ceil(rect.width) + 48, // padding
-        height: Math.ceil(rect.height) + 24 // padding
+
+      // Небольшая задержка для точного измерения
+      requestAnimationFrame(() => {
+        if (measureRef.current) {
+          const rect = measureRef.current.getBoundingClientRect();
+          setContainerSize({
+            width: Math.ceil(rect.width) + 48, // padding
+            height: Math.ceil(rect.height) + 24 // padding
+          });
+        }
       });
     }
   }, [currentTextIndex, texts]);
@@ -62,10 +68,9 @@ export default function SmoothRotatingText({
           height: containerSize.height
         }}
         transition={{
-          type: "spring",
-          damping: 18,
-          stiffness: 150,
-          duration: 1.6
+          type: "tween",
+          ease: "easeInOut",
+          duration: 0.8
         }}
         style={{
           minWidth: containerSize.width,
@@ -81,10 +86,9 @@ export default function SmoothRotatingText({
               height: containerSize.height
             }}
             transition={{
-              type: "spring",
-              damping: 18,
-              stiffness: 150,
-              duration: 1.6
+              type: "tween",
+              ease: "easeInOut",
+              duration: 0.8
             }}
           />
         )}
@@ -95,10 +99,15 @@ export default function SmoothRotatingText({
             <motion.p
               key={currentTextIndex}
               className={className}
-              initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, y: -20, filter: 'blur(8px)' }}
-              transition={{ duration: 0.7, ease: 'easeInOut' }}
+              initial={{ opacity: 0, y: 15, filter: 'blur(4px)', scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
+              exit={{ opacity: 0, y: -15, filter: 'blur(4px)', scale: 0.95 }}
+              transition={{
+                duration: 0.6,
+                ease: 'easeInOut',
+                opacity: { duration: 0.4 },
+                filter: { duration: 0.5 }
+              }}
             >
               {texts[currentTextIndex]}
             </motion.p>
