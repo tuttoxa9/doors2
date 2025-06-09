@@ -17,34 +17,57 @@ export default function SmoothRotatingText({
   blurBackground = true
 }: SmoothRotatingTextProps) {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [nextTextIndex, setNextTextIndex] = useState(1);
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const measureRef = useRef<HTMLSpanElement>(null);
 
-  // Измеряем размер следующего текста заранее
-  useEffect(() => {
-    if (measureRef.current) {
-      measureRef.current.textContent = texts[currentTextIndex];
+  // Функция для измерения размера текста
+  const measureText = (textIndex: number): Promise<{width: number, height: number}> => {
+    return new Promise((resolve) => {
+      if (measureRef.current && texts[textIndex]) {
+        measureRef.current.textContent = texts[textIndex];
 
-      // Небольшая задержка для точного измерения
-      requestAnimationFrame(() => {
-        if (measureRef.current) {
-          const rect = measureRef.current.getBoundingClientRect();
-          setContainerSize({
-            width: Math.ceil(rect.width) + 48, // padding
-            height: Math.ceil(rect.height) + 24 // padding
-          });
-        }
-      });
-    }
-  }, [currentTextIndex, texts]);
+        requestAnimationFrame(() => {
+          if (measureRef.current) {
+            const rect = measureRef.current.getBoundingClientRect();
+            resolve({
+              width: Math.ceil(rect.width) + 48, // padding
+              height: Math.ceil(rect.height) + 24 // padding
+            });
+          }
+        });
+      } else {
+        resolve({ width: 0, height: 0 });
+      }
+    });
+  };
+
+  // Инициализируем размер для первого текста
+  useEffect(() => {
+    measureText(currentTextIndex).then(setContainerSize);
+    setNextTextIndex((currentTextIndex + 1) % texts.length);
+  }, [texts]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTextIndex((prev) => (prev + 1) % texts.length);
+    const interval = setInterval(async () => {
+      setIsTransitioning(true);
+
+      // Сначала измеряем размер следующего текста и меняем размер контейнера
+      const nextSize = await measureText(nextTextIndex);
+      setContainerSize(nextSize);
+
+      // Через небольшую задержку меняем текст
+      setTimeout(() => {
+        setCurrentTextIndex(nextTextIndex);
+        setNextTextIndex((nextTextIndex + 1) % texts.length);
+        setIsTransitioning(false);
+      }, 300); // Треть времени анимации контейнера
+
     }, rotationInterval);
 
     return () => clearInterval(interval);
-  }, [texts.length, rotationInterval]);
+  }, [texts.length, rotationInterval, nextTextIndex]);
 
   return (
     <div className="flex justify-center">
@@ -73,8 +96,7 @@ export default function SmoothRotatingText({
           duration: 0.8
         }}
         style={{
-          minWidth: containerSize.width,
-          minHeight: containerSize.height
+          overflow: "hidden"
         }}
       >
         {/* Блюр за текстом */}
@@ -103,10 +125,10 @@ export default function SmoothRotatingText({
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
               exit={{ opacity: 0, y: -15, filter: 'blur(4px)', scale: 0.95 }}
               transition={{
-                duration: 0.6,
+                duration: 0.5,
                 ease: 'easeInOut',
-                opacity: { duration: 0.4 },
-                filter: { duration: 0.5 }
+                opacity: { duration: 0.3 },
+                filter: { duration: 0.4 }
               }}
             >
               {texts[currentTextIndex]}
