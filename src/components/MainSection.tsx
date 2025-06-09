@@ -144,7 +144,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
         </div>
 
         {/* Стрелка для скролла - в самом низу секции */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 hidden md:block">
           <motion.div
             className="cursor-pointer"
             initial={{ y: 0 }}
