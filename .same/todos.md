@@ -1,36 +1,24 @@
-# Todos
+# TODO List для обновления Firebase
 
-## Completed
-- [x] Создать базовую структуру проекта Next.js с Tailwind CSS
-- [x] Настроить Firebase Firestore для хранения товаров
-- [x] Создать основные компоненты (Header, Footer, MainSection)
-- [x] Добавить модальные окна для товаров и корзины
-- [x] Реализовать базовую логику корзины с localStorage
-- [x] Добавить Telegram интеграцию для отправки заказов
-- [x] Настроить видео фон на главной странице
-- [x] Заменить все упоминания "шкафы-купе" на "шкафы распашные"
-- [x] Замена всех видов шкафов на просто "Шкафы"
-- [x] Замена video1.mp4 на video5.mp4 из папки uploads
-- [x] Комплексное улучшение SEO сайта:
-  - [x] Улучшены мета-теги с географическим таргетингом
-  - [x] Расширены keywords с длинными хвостами
-  - [x] Добавлен FAQ компонент с schema markup
-  - [x] Улучшен structured data (LocalBusiness, Product, Review, FAQ)
-  - [x] Обновлен sitemap.xml с актуальными датами
-  - [x] Улучшен robots.txt с дополнительными директивами
-  - [x] Добавлен PWA manifest.json
-  - [x] Создан SEOHead компонент для preload ресурсов
-  - [x] Добавлены Open Graph и Twitter Card оптимизации
-  - [x] Улучшена локализация для Беларуси (ru_BY)
+## Задачи:
+- [x] Клонировать репозиторий GitHub: doors2
+- [x] Обновить Firebase конфигурацию в src/lib/firebase.ts
+- [x] Проверить, что магазин товаров правильно связан с новой Firebase
+- [x] Установить зависимости проекта
+- [x] Протестировать подключение к Firebase
+- [ ] Сделать commit изменений
+- [ ] Push изменений в main ветку с токеном
 
-## In Progress
+## Firebase конфигурация для замены:
+```
+apiKey: "AIzaSyDFpT1MQSqfa8SXG0fKRS_olUAheOJAEII"
+authDomain: "mebel-be602.firebaseapp.com"
+projectId: "mebel-be602"
+storageBucket: "mebel-be602.firebasestorage.app"
+messagingSenderId: "368556149445"
+appId: "1:368556149445:web:033463c32a4ee6a93c7eac"
+measurementId: "G-3H974WY264"
+```
 
-## Todo
-- [x] Заменить "шкафы распашные" на "шкафы" в MainSection.tsx
-- [x] Заменить "шкафы распашные" на "шкафы" в ShopSection.tsx
-- [x] Обновить типы категорий в product.ts
-- [x] Обновить мета-теги и SEO описания
-- [x] Обновить structured data
-- [x] Обновить RSS route
-- [x] Очистить документацию от упоминаний конкретных видов шкафов
-- [x] Сделать Git push с предоставленным токеном
+## GitHub токен для push:
+[ТОКЕН УДАЛЕН ДЛЯ БЕЗОПАСНОСТИ]

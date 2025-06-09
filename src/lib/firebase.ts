@@ -4,13 +4,13 @@ import { getStorage } from 'firebase/storage'
 import { getAnalytics, isSupported } from 'firebase/analytics'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDYw0nAtJ51i5eSi-KFjKYlV3CttdBkJPc",
-  authDomain: "doors-24bf2.firebaseapp.com",
-  projectId: "doors-24bf2",
-  storageBucket: "doors-24bf2.firebasestorage.app",
-  messagingSenderId: "885264700582",
-  appId: "1:885264700582:web:4698ca161e19b41bfd9067",
-  measurementId: "G-5M6BG83ZGS"
+  apiKey: "AIzaSyDFpT1MQSqfa8SXG0fKRS_olUAheOJAEII",
+  authDomain: "mebel-be602.firebaseapp.com",
+  projectId: "mebel-be602",
+  storageBucket: "mebel-be602.firebasestorage.app",
+  messagingSenderId: "368556149445",
+  appId: "1:368556149445:web:033463c32a4ee6a93c7eac",
+  measurementId: "G-3H974WY264"
 }
 
 // Инициализируем Firebase
