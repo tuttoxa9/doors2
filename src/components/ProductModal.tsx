@@ -73,7 +73,7 @@ export default function ProductModal({ product, isOpen, onClose, onContactClick 
                       src={product.images[currentImageIndex]}
                       alt={product.name}
                       className="w-full h-full object-cover"
-                      fallbackClassName="h-full"
+                      fallbackClassName="w-full h-full"
                       loading="eager"
                     />
 
@@ -138,8 +138,8 @@ export default function ProductModal({ product, isOpen, onClose, onContactClick 
                           <OptimizedImage
                             src={image}
                             alt={`${product.name} ${index + 1}`}
-                            className="w-full h-full object-cover"
-                            fallbackClassName="w-full h-full"
+                            className="w-full h-full object-cover aspect-square"
+                            fallbackClassName="w-full h-full aspect-square"
                           />
                         </button>
                       ))}
