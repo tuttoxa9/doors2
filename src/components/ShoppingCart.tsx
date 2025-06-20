@@ -427,6 +427,33 @@ export default function ShoppingCart({ onOrderSubmit }: ShoppingCartProps) {
                     Мы свяжемся с вами в течение 30 минут для уточнения деталей заказа
                   </p>
                 </div>
+
+                {/* Контакты под формой */}
+                <div className="mt-4 pt-4 border-t border-gray-200">
+                  <p className="text-center text-gray-600 mb-3 text-xs sm:text-sm">Или свяжитесь с нами удобным способом:</p>
+                  <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-3">
+                    <a
+                      href="https://t.me/rervir"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-3 py-1.5 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200 text-xs sm:text-sm"
+                    >
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.374 0 0 5.374 0 12s5.374 12 12 12 12-5.374 12-12S18.626 0 12 0zm5.568 8.16l-1.61 7.589c-.12.554-.436.686-.884.427l-2.454-1.81-1.183 1.138c-.131.131-.242.242-.497.242l.178-2.519 4.589-4.149c.199-.178-.043-.276-.309-.098l-5.674 3.57-2.444-.763c-.531-.166-.542-.531.111-.785l9.544-3.68c.442-.166.83.099.683.785z"/>
+                      </svg>
+                      Написать в телеграм
+                    </a>
+                    <a
+                      href="tel:+375291565232"
+                      className="flex items-center gap-2 px-3 py-1.5 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors duration-200 text-xs sm:text-sm"
+                    >
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                      </svg>
+                      +375 29 156 5232
+                    </a>
+                  </div>
+                </div>
               </motion.div>
             )}
           </motion.div>
