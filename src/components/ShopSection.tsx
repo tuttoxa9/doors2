@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Eye, Filter, RotateCcw } from 'lucide-react'
+import { ArrowRight, Eye, Filter, RotateCcw, ChevronDown } from 'lucide-react'
 import { useState, useMemo } from 'react'
 import ProductModal from './ProductModal'
 import OptimizedImage from './OptimizedImage'
@@ -17,6 +17,7 @@ export default function ShopSection({ onContactClick }: ShopSectionProps) {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [showFilters, setShowFilters] = useState(false)
   const [priceFilter, setPriceFilter] = useState({ min: 0, max: 10000 })
+  const [sortBy, setSortBy] = useState<'price-asc' | 'price-desc' | 'default'>('default')
   const { products, isLoading, isError, error } = useProducts()
 
   // Calculate actual price range from products
@@ -30,19 +31,29 @@ export default function ShopSection({ onContactClick }: ShopSectionProps) {
     }
   }, [products])
 
-  // Filter products based on price
+  // Filter and sort products
   const filteredProducts = useMemo(() => {
-    return products.filter(product => {
+    let filtered = products.filter(product => {
       const productMinPrice = product.price.min
       const productMaxPrice = product.price.max
 
       // Check if product price range overlaps with filter range
       return productMaxPrice >= priceFilter.min && productMinPrice <= priceFilter.max
     })
-  }, [products, priceFilter])
+
+    // Sort products based on sortBy value
+    if (sortBy === 'price-asc') {
+      filtered = filtered.sort((a, b) => a.price.min - b.price.min)
+    } else if (sortBy === 'price-desc') {
+      filtered = filtered.sort((a, b) => b.price.min - a.price.min)
+    }
+
+    return filtered
+  }, [products, priceFilter, sortBy])
 
   const resetFilters = () => {
     setPriceFilter({ min: actualPriceRange.min, max: actualPriceRange.max })
+    setSortBy('default')
   }
 
   const handleProductClick = (product: Product) => {
@@ -94,75 +105,101 @@ export default function ShopSection({ onContactClick }: ShopSectionProps) {
       {/* Projects Gallery */}
       <section className="pt-8 pb-20 bg-zinc-50">
         <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
             <h2 className="text-3xl font-bold text-zinc-900">
               Каталог
             </h2>
 
-            {/* Filter Toggle Button */}
+            {/* Compact Filter and Sort Controls */}
             {!isLoading && !isError && products.length > 0 && (
-              <button
-                onClick={() => setShowFilters(!showFilters)}
-                className="flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 border border-zinc-200"
-              >
-                <Filter className="w-4 h-4 text-zinc-600" />
-                <span className="text-sm font-medium text-zinc-700">Фильтры</span>
-              </button>
+              <div className="flex items-center space-x-3">
+                {/* Sort Dropdown */}
+                <div className="relative">
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value as 'price-asc' | 'price-desc' | 'default')}
+                    className="appearance-none bg-white border border-zinc-200 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-zinc-700 hover:border-zinc-300 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent cursor-pointer"
+                  >
+                    <option value="default">По умолчанию</option>
+                    <option value="price-asc">Сначала дешевле</option>
+                    <option value="price-desc">Сначала дороже</option>
+                  </select>
+                  <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-zinc-500 pointer-events-none" />
+                </div>
+
+                {/* Filter Toggle Button */}
+                <button
+                  onClick={() => setShowFilters(!showFilters)}
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg shadow-sm transition-all duration-200 border ${
+                    showFilters
+                      ? 'bg-zinc-900 text-white border-zinc-900'
+                      : 'bg-white text-zinc-700 border-zinc-200 hover:border-zinc-300'
+                  }`}
+                >
+                  <Filter className="w-4 h-4" />
+                  <span className="text-sm font-medium">Фильтры</span>
+                </button>
+              </div>
             )}
           </div>
 
-          {/* Compact Price Filter */}
+          {/* Compact and Beautiful Price Filter */}
           {showFilters && !isLoading && !isError && products.length > 0 && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="bg-white rounded-2xl p-6 shadow-lg border border-zinc-200 mb-8"
+              className="bg-gradient-to-r from-white to-zinc-50 rounded-xl p-5 shadow-md border border-zinc-200/60 mb-6 backdrop-blur-sm"
             >
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-zinc-900">Цена</h3>
-                <button
-                  onClick={resetFilters}
-                  className="flex items-center space-x-1 text-sm text-zinc-500 hover:text-zinc-700 transition-colors duration-200"
-                >
-                  <RotateCcw className="w-4 h-4" />
-                  <span>Сбросить</span>
-                </button>
-              </div>
-
-              <div className="space-y-4">
-                {/* Price Range Inputs */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-zinc-700 mb-2">От</label>
-                    <input
-                      type="number"
-                      value={priceFilter.min}
-                      onChange={(e) => setPriceFilter(prev => ({ ...prev, min: Math.max(0, Number(e.target.value)) }))}
-                      className="w-full px-3 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-transparent outline-none transition-all duration-200"
-                      placeholder="0"
-                    />
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                {/* Price Range Section */}
+                <div className="flex-1">
+                  <div className="flex items-center space-x-2 mb-3">
+                    <h3 className="text-sm font-semibold text-zinc-800">Цена</h3>
+                    <span className="text-xs text-zinc-500 bg-zinc-100 px-2 py-1 rounded-full">
+                      {actualPriceRange.min.toLocaleString()} - {actualPriceRange.max.toLocaleString()} BYN
+                    </span>
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-zinc-700 mb-2">До</label>
-                    <input
-                      type="number"
-                      value={priceFilter.max}
-                      onChange={(e) => setPriceFilter(prev => ({ ...prev, max: Math.max(priceFilter.min, Number(e.target.value)) }))}
-                      className="w-full px-3 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-transparent outline-none transition-all duration-200"
-                      placeholder="10000"
-                    />
+
+                  <div className="flex items-center space-x-3">
+                    <div className="flex-1">
+                      <input
+                        type="number"
+                        value={priceFilter.min}
+                        onChange={(e) => setPriceFilter(prev => ({ ...prev, min: Math.max(0, Number(e.target.value)) }))}
+                        className="w-full px-3 py-2 text-sm border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-transparent outline-none transition-all duration-200 bg-white/80"
+                        placeholder="От"
+                      />
+                    </div>
+                    <span className="text-zinc-400 text-sm">—</span>
+                    <div className="flex-1">
+                      <input
+                        type="number"
+                        value={priceFilter.max}
+                        onChange={(e) => setPriceFilter(prev => ({ ...prev, max: Math.max(priceFilter.min, Number(e.target.value)) }))}
+                        className="w-full px-3 py-2 text-sm border border-zinc-300 rounded-lg focus:ring-2 focus:ring-zinc-900 focus:border-transparent outline-none transition-all duration-200 bg-white/80"
+                        placeholder="До"
+                      />
+                    </div>
                   </div>
                 </div>
 
-                {/* Results Counter */}
-                <div className="flex items-center justify-between pt-2 border-t border-zinc-200">
-                  <span className="text-sm text-zinc-600">
-                    Найдено товаров: <span className="font-semibold text-zinc-900">{filteredProducts.length}</span>
-                  </span>
-                  <span className="text-xs text-zinc-500">
-                    Диапазон: {actualPriceRange.min.toLocaleString()} - {actualPriceRange.max.toLocaleString()} BYN
-                  </span>
+                {/* Results and Reset Section */}
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:border-l sm:border-zinc-200 sm:pl-5">
+                  <div className="text-center sm:text-left">
+                    <div className="text-sm font-medium text-zinc-900">
+                      {filteredProducts.length} товар{filteredProducts.length === 1 ? '' : filteredProducts.length < 5 ? 'а' : 'ов'}
+                    </div>
+                    <div className="text-xs text-zinc-500">найдено</div>
+                  </div>
+
+                  <button
+                    onClick={resetFilters}
+                    className="flex items-center justify-center space-x-1 px-3 py-2 text-xs font-medium text-zinc-600 hover:text-zinc-900 hover:bg-white rounded-lg transition-all duration-200 border border-zinc-200 hover:border-zinc-300"
+                  >
+                    <RotateCcw className="w-3 h-3" />
+                    <span>Сбросить</span>
+                  </button>
                 </div>
               </div>
             </motion.div>
