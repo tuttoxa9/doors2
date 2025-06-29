@@ -55,7 +55,7 @@ export default function Header({ scrollY, activeSection, setActiveSection, onCon
               className={cn(
                 "px-6 py-2 rounded-full text-lg font-medium transition-all duration-200 border-2",
                 activeSection === 'main'
-                  ? "text-zinc-900 font-semibold bg-white border-zinc-300 shadow-lg"
+                  ? "text-zinc-900 font-semibold bg-white border-white shadow-lg"
                   : "bg-zinc-900 text-white hover:bg-zinc-800 border-transparent"
               )}
             >
@@ -66,7 +66,7 @@ export default function Header({ scrollY, activeSection, setActiveSection, onCon
               className={cn(
                 "px-6 py-2 rounded-full text-lg font-medium transition-all duration-200 border-2",
                 activeSection === 'shop'
-                  ? "text-zinc-900 font-semibold bg-white border-zinc-300 shadow-lg"
+                  ? "text-zinc-900 font-semibold bg-white border-white shadow-lg"
                   : "bg-zinc-900 text-white hover:bg-zinc-800 border-transparent"
               )}
             >
@@ -142,7 +142,7 @@ export default function Header({ scrollY, activeSection, setActiveSection, onCon
               className={cn(
                 "px-4 py-2 rounded-full font-medium transition-all duration-200 border-2",
                 activeSection === 'main'
-                  ? 'bg-white text-zinc-900 border-zinc-300 shadow-lg font-semibold'
+                  ? 'bg-white text-zinc-900 border-white shadow-lg font-semibold'
                   : 'bg-zinc-900 text-white hover:bg-zinc-800 border-transparent'
               )}
               onClick={() => setActiveSection(activeSection === 'main' ? 'shop' : 'main')}

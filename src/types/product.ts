@@ -28,5 +28,8 @@ export interface ProductFormData {
 
 export type ProductCategory =
   | 'Шкафы'
+  | 'Комоды'
+  | 'Столы'
+  | 'Полки'
   | 'Гардеробные'
   | 'Детские шкафы'
